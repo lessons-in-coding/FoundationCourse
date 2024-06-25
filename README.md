@@ -1,4 +1,4 @@
-# မင်္ဂလာပါ
+# မင်္ဂလာပါ June-21st, 2024
 
 ## Module (အခြေခံ)
 >FoundationCourse မှာ Module ၆-ခုရှိပါတယ်။
