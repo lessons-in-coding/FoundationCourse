@@ -1,4 +1,12 @@
 .DS_Store
+
+03-JavaScript/
+04-Web-APIs/
+05-Third-Party-APIs/
+06-Server-Side-APIs/
+07-Project-1/
+08-Project-1/
+=======
 03-JavaScript
 04-Web-APIs
 05-Third-Party-APIs
@@ -7,6 +15,7 @@
 08-Project-1
 01-HTML-Git-CSS/01-Activities/01-HTML/Solved
 
+<<<<<<< HEAD
 02-Advanced-CSS/01-Activities/03-Responsive-Design/Solved
 
 02-Advanced-CSS/01-Activities/04-Pseudo-Classes/Solved
@@ -14,3 +23,5 @@
 02-Advanced-CSS/01-Activities/05-CSS-Variables/Solved
 
 
+=======
+>>>>>>> refs/remotes/origin/main
