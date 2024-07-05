@@ -36,6 +36,10 @@
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
     }
+
+    .my-gallery {
+      grid-template-columns: repeat(1, 1fr);
+  }
   
     footer {
       display: flex;
@@ -67,6 +71,10 @@
       margin: auto;
       padding: 15px;
     }
+
+    .my-gallery {
+      grid-template-columns: repeat(2, 1fr);
+  }
   
     footer {
       display: flex;
@@ -100,6 +108,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
+
+    .my-gallery {
+      grid-template-columns: repeat(3, 1fr);
+  }
   
     footer {
       padding: 25px 50px;

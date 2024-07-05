@@ -117,3 +117,27 @@
   font-weight: 400;
 }
 
+/* Gallery Page */
+.my-gallery {
+  display: grid;
+  gap: 3%;
+  padding: 5%;
+  background-color: black;
+}
+
+.my-gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.my-gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* border: .25px solid rgba(167, 127, 9, 0.532); */
+  box-shadow: 3px 3px 5px rgba(239, 238, 238, 0.954);
+  border-radius: 5px;
+  background-color: rgba(173, 173, 173, 0.689);
+  object-fit: cover;
+}
+
