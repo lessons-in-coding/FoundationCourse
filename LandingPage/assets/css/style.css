@@ -10,7 +10,6 @@
   --button-bg-hover: rgb(110, 109, 107);
   --border-left: lightskyblue;
   --highlighted-color: #4caf50;
-
   --card-border-radius: 6px;
   --accent-red: #bc2e14;
 }
@@ -66,13 +65,14 @@ header {
 nav {
   background-color: var(--header-footer-bg-color);
   padding: 20px;
+  z-index: 100;
 }
 
 .container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 15px;
+  /* gap: 15px; */
 }
 
 .nav-logo {
