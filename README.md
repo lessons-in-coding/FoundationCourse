@@ -22,3 +22,5 @@
 - All Module-Project = 100
 - Final Project (at the end) = 100
 >Pass Mark = 75% out of 400-scores
+
+Thanks
