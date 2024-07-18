@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Box with Left Border and Icon</title>
+<style>
+  body {
+    width: 70%;
+    margin: 5%;
+  }
+  .textbox {
+    position: relative;
+    padding-left: 40px; /* Adjust padding as needed */
+    border-left: 3px solid #b0b3b1; /* Green left border */
+    display: flex; /* Ensure the container expands with its contents */
+    align-items: center; /* Center align content vertically */
+    font-family: Arial, sans-serif; /* Font for text */
+    position: relative; /* Ensure relative positioning */
+    line-height: 2;
+    font-size: 20px;
+  }
+  .textbox::before {
+    content: "\1F4D6"; /* Unicode for book icon */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Specify icon font */
+    position: absolute;
+    top: -20px; /* Adjust this value to position the icon above the left border */
+    left: -17px; /* Adjust this value to align the icon */
+    font-size: 24px; /* Adjust icon size */
+    width: 40px; /* Adjust icon container size */
+    height: 40px; /* Adjust icon container size */
+    line-height: 40px; /* Center icon vertically */
+    text-align: center; /* Center icon horizontally */
+    background-color: #b0b3b1; /* Green background for the icon */
+    border-radius: 50%; /* Rounded shape */
+    color: white; /* Icon color */
+  }
+  .min {
+    color: green;
+    font-size: 45px;
+    position: absolute;
+    top: 70%;
+    left: -27px;
+    border-bottom: 2px solid orange;
+  }
+</style>
+</head>
+<body>
+
+<div >
+  <p class="textbox">Text inside the text box. Lorem ipsum dolor sit amet consectetur
+    adipisicing elit. Corporis id consectetur corrupti maiores, commodi
+    distinctio omnis est maxime animi, tempore nam. Itaque beatae at,
+    consectetur nesciunt similique voluptates odio obcaecati corporis sed
+    laborum quos quasi delectus perspiciatis ipsum dolorum voluptatum facere
+    praesentium quae aliquam ut voluptate, necessitatibus velit explicabo.
+    Unde voluptas eveniet esse repellendus autem corrupti, itaque labore,
+    sed, nostrum ex corporis vitae quae numquam aliquam vel illum enim?
+    Cupiditate quo, ratione quibusdam facilis eligendi dignissimos illum
+    quas consequuntur, laboriosam, porro aliquid facere. Corporis rerum eius
+    at optio, eos repudiandae, ea vitae quasi reprehenderit culpa omnis
+    repellendus illo vel unde nulla nemo. At commodi explicabo, nostrum
+    delectus consequatur a facere vero tenetur rerum ratione repellendus
+    accusantium autem quibusdam qui possimus!</p>
+</div>
+
+</body>
+</html>
