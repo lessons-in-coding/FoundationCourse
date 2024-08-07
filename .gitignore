@@ -1,15 +1,5 @@
 .DS_Store
 
-
-03-JavaScript/01-Activities/02-Iteration/Solved
-03-JavaScript/01-Activities/03-Functions/Solved
-03-JavaScript/01-Activities/04-Scope/Solved
-03-JavaScript/01-Activities/05-Object-This/Solved
-03-JavaScript/03-Algorithms/01-arithmetic/Solved
-03-JavaScript/03-Algorithms/02-odd-or-even/Solved
-03-JavaScript/03-Algorithms/03-log-nums/Solved
-
-
 04-Web-APIs/01-Activities/01-Create-Append/Solved
 04-Web-APIs/01-Activities/02-Event-Listeners/Solved
 04-Web-APIs/01-Activities/03-Timers-Intervals/Solved
@@ -42,20 +32,27 @@ Lessons-Web-Layout-Card/Flex-Grid/index.html
 Lessons-Web-Layout-Card/Flex-Grid/style.css
 Lessons-Web-Layout-Card/Flex-Grid/script.js
 
+All-About-Array
+CallStack
+
 
 Web-Designs/Gradients-CSS/script.js
+Web-Designs/Button
 Web-Designs/Card-Hover
 Web-Designs/Contact
 Web-Designs/Design1
 Web-Designs/Design2
 Web-Designs/Design3
+Web-Designs/Footer
 Web-Designs/Game
-Web-Designs/Gradients-CSS
 Web-Designs/icon
 Web-Designs/image-shape
 Web-Designs/JS-w-Robot
 Web-Designs/Navbar
-Web-Designs/Student-s_Bio
+Web-Designs/R-design-Responsive-Website-main
+Web-Designs/Tooltips
 
 JavaScript-Lessons
+
+Promise
 
