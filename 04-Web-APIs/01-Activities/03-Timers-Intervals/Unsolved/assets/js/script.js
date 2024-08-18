@@ -1,46 +1,37 @@
-var timerEl = document.getElementById('countdown');
-var mainEl = document.getElementById('main');
-
 var message =
-  'Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.';
-var words = message.split(' ');
+  "Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.";
+var z = message.split(" ");
+
+var x = document.querySelector("#countdown");
+var y = document.querySelector("#main");
 
 function countdown() {
-  var timeLeft = 5;
+  var num = 5;
 
-  // TODO: Add a comment describing the functionality of the setInterval() method:
-  var timeInterval = setInterval(function () {
-    // TODO: Add comments describing the functionality of the `if` statement:
-    if (timeLeft > 1) {
-      timerEl.textContent = timeLeft + ' seconds remaining';
-      timeLeft--;
-    } // TODO: Add comments describing the functionality of the `else if` statement:
-    else if (timeLeft === 1) {
-      timerEl.textContent = timeLeft + ' second remaining';
-      timeLeft--;
-    } // TODO: Add comments describing the functionality of the `else` statement:
-    else {
-      timerEl.textContent = '';
-      clearInterval(timeInterval);
+  var xyz = setInterval(() => {
+    if (num > 1) {
+      x.textContent = num + " seconds remaining!";
+      num--;
+    } else if (num === 1) {
+      x.textContent = num + " second remaining!";
+      num--;
+    } else {
+      x.textContent = "";
+      clearInterval(xyz);
       displayMessage();
     }
   }, 1000);
 }
 
-// Displays the message one word at a time
 function displayMessage() {
-  var wordCount = 0;
+  var a = 0;
 
-  // Uses the `setInterval()` method to call a function to be executed every 1000 milliseconds
-  var msgInterval = setInterval(function () {
-    // If there are no more words left in the message
-    if (words[wordCount] === undefined) {
-      // Use `clearInterval()` to stop the timer
-      clearInterval(msgInterval);
+  var msg = setInterval(() => {
+    if (z[a] === undefined) {
+      clearInterval(msg);
     } else {
-      // Display one word of the message
-      mainEl.textContent = words[wordCount];
-      wordCount++;
+      y.textContent = z[a];
+      a++;
     }
   }, 1000);
 }

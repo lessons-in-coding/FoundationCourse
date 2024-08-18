@@ -4,3 +4,8 @@ var expression1 = x < 25;
 var expression2 = x > 50;
 
 // TODO: Write Your JavaScript Code Here
+if(true){
+    
+}else{
+
+}
