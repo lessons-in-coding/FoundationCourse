@@ -1,14 +1,6 @@
 .DS_Store
 Flight-Status
 
-05-Third-Party-APIs/01-Activities/01-Click-Events/Solved
-05-Third-Party-APIs/01-Activities/02-Event-Delegation/Solved
-05-Third-Party-APIs/01-Activities/03-Bootstrap-Layout/Solved
-05-Third-Party-APIs/01-Activities/04-Bootstrap-Utilities/Solved
-05-Third-Party-APIs/01-Activities/05-jQuery-UI/Solved
-05-Third-Party-APIs/03-Algorithms/01-fizz-buzz/Solved
-05-Third-Party-APIs/03-Algorithms/02-max-num/Solved
-05-Third-Party-APIs/03-Algorithms/03-vowel-count/Solved
 
 06-Server-Side-APIs/01-Activities/01-Create-Fetch/Solved
 06-Server-Side-APIs/01-Activities/02-Parse-JSON/Solved
@@ -55,3 +47,7 @@ Library
 Callback-Promise-Async_Await
 
 UserManagementSystem
+
+Accordion
+ArrowAndLexicalScope
+StickyNote

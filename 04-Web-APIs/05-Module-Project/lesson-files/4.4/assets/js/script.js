@@ -1,10 +1,10 @@
 var taskIdCounter = 0;
 
 var formEl = document.querySelector("#task-form");
+var pageContentEl = document.querySelector("#page-content");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
 var tasksCompletedEl = document.querySelector("#tasks-completed");
-var pageContentEl = document.querySelector("#page-content");
 
 // create array to hold tasks for saving
 var tasks = [];
@@ -58,6 +58,10 @@ var createTaskEl = function(taskDataObj) {
   switch (taskDataObj.status) {
     case "to do":
       taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
+      /*
+      let selectElement = document.querySelector("select[name='status-change']");
+selectElement.selectedIndex = 1; // This would select "In Progress"
+      */
       tasksToDoEl.append(listItemEl);
       break;
     case "in progress":
@@ -83,19 +87,39 @@ var createTaskEl = function(taskDataObj) {
   // increase task counter for next unique task id
   taskIdCounter++;
 };
+/*
+<li class="task-item" data-task-id="1">
+  <div class="task-info">
+    <h3 class="task-name">Study JavaScript</h3>
+    <span class="task-type">Programming</span>
+  </div>
+  <div class="task-actions">
+    <button class="btn edit-btn" data-task-id="1">Edit</button>
+    <button class="btn delete-btn" data-task-id="1">Delete</button>
+    <select name="status-change" data-task-id="1" class="select-status">
+      <option value="To Do">To Do</option>
+      <option value="In Progress" selected>In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+  </div>
+</li>
+*/
 
 var createTaskActions = function (taskId) {
   // create container to hold elements
+  // <div class="task-actions"></div>
   var actionContainerEl = document.createElement("div");
   actionContainerEl.className = "task-actions";
 
   // create edit button
+  // <button class="btn edit-btn" data-task-id="1">Edit</button>
   var editButtonEl = document.createElement("button");
   editButtonEl.textContent = "Edit";
   editButtonEl.className = "btn edit-btn";
   editButtonEl.setAttribute("data-task-id", taskId);
   actionContainerEl.appendChild(editButtonEl);
   // create delete button
+  // <button class="btn delete-btn" data-task-id="1">Delete</button>
   var deleteButtonEl = document.createElement("button");
   deleteButtonEl.textContent = "Delete";
   deleteButtonEl.className = "btn delete-btn";
@@ -121,6 +145,15 @@ var createTaskActions = function (taskId) {
   }
 
   return actionContainerEl;
+//   <div class="task-actions">
+//   <button class="btn edit-btn" data-task-id="1">Edit</button>
+//   <button class="btn delete-btn" data-task-id="1">Delete</button>
+//   <select name="status-change" data-task-id="1" class="select-status">
+//     <option value="To Do">To Do</option>
+//     <option value="In Progress">In Progress</option>
+//     <option value="Completed">Completed</option>
+//   </select>
+// </div>
 };
 
 var completeEditTask = function (taskName, taskType, taskId) {
@@ -170,13 +203,22 @@ var taskStatusChangeHandler = function (event) {
   console.log(event.target.value);
 
   // find task list item based on event.target's data-task-id attribute
+  // Step 1: Get the taskId from the event target (the dropdown)
   var taskId = event.target.getAttribute("data-task-id");
 
+  // Step 2: Use taskId to find the entire task <li> element
   var taskSelected = document.querySelector(
     ".task-item[data-task-id='" + taskId + "']"
   );
+  /*
+    taskSelected = event.target.closest('.task-item');
+
+	•	querySelector: Good for finding an element based on known attributes.
+	•	closest: Ideal for event handling to find the nearest parent element that matches a selector.
+  */
 
   // convert value to lower case
+  // Now, taskSelected can be moved to another section based on status
   var statusValue = event.target.value.toLowerCase();
 
   if (statusValue === "to do") {
@@ -188,6 +230,7 @@ var taskStatusChangeHandler = function (event) {
   }
 
   // update task's in tasks array
+  // Update the task's status in the tasks array and save
   for (var i = 0; i < tasks.length; i++) {
     if (tasks[i].id === parseInt(taskId)) {
       tasks[i].status = statusValue;
@@ -280,3 +323,64 @@ pageContentEl.addEventListener("click", taskButtonHandler);
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
 
 loadTasks();
+
+/*
+Here’s an updated grouping of functions based on different user interactions, including all the functions you mentioned:
+
+1. First Time Creating a New Task (No Other Saved Tasks)
+
+	•	taskFormHandler(event): Handles form submission when creating a new task.
+	•	Checks if the form fields (task-name and task-type) are filled.
+	•	If it’s a new task (i.e., no data-task-id attribute on the form), it creates a new task object and calls createTaskEl(taskDataObj) to add the task to the list.
+	•	createTaskEl(taskDataObj): Creates the HTML structure for the new task.
+	•	Generates a unique data-task-id for the task.
+	•	Adds the task to the appropriate task list (To Do, In Progress, Completed).
+	•	Calls createTaskActions(taskId) to add Edit and Delete buttons to the task.
+	•	Pushes the task object into the tasks array.
+	•	Calls saveTasks() to save the tasks to localStorage.
+	•	createTaskActions(taskId): Creates the Edit and Delete buttons for the task.
+	•	Adds event listeners to the buttons for handling edits and deletions.
+	•	saveTasks(): Saves the current state of the tasks array to localStorage.
+	•	loadTasks(): Loads tasks from localStorage when the page is loaded.
+	•	Calls createTaskEl(task) for each task retrieved from localStorage to render it on the page.
+
+2. User Clicks Edit Button
+
+	•	taskButtonHandler(event): Detects when the Edit button is clicked.
+	•	Calls editTask(taskId) with the taskId of the task to be edited.
+	•	editTask(taskId): Prepares the task for editing.
+	•	Retrieves the task details (name, type) and populates them in the form fields.
+	•	Changes the form button text to “Save Task” and sets the data-task-id attribute on the form to the taskId.
+	•	taskFormHandler(event): When the form is submitted after editing, this function detects if the form has a data-task-id attribute and proceeds to complete the task editing process by calling completeEditTask(taskName, taskType, taskId).
+	•	completeEditTask(taskName, taskType, taskId): Handles the form submission for editing.
+	•	Updates the task’s details in both the UI and the tasks array.
+	•	Calls saveTasks() to save the updated tasks to localStorage.
+	•	Changes the form button text back to “Add Task” and removes the data-task-id attribute.
+
+3. User Clicks Delete Button
+
+	•	taskButtonHandler(event): Detects when the Delete button is clicked.
+	•	Calls deleteTask(taskId) with the taskId of the task to be deleted.
+	•	deleteTask(taskId): Removes the task from the list.
+	•	Removes the task element from the DOM.
+	•	Filters out the deleted task from the tasks array.
+	•	Calls saveTasks() to save the updated tasks to localStorage.
+
+4. User Selects to Change Status
+
+	•	taskStatusChangeHandler(event): Handles changes in task status.
+	•	Detects the new status selected by the user (from dropdown or other UI elements).
+	•	Moves the task to the corresponding list (To Do, In Progress, Completed).
+	•	Updates the task’s status in the tasks array.
+	•	Calls saveTasks() to save the updated tasks to localStorage.
+
+Summary of Function Roles:
+
+	•	Task Creation: taskFormHandler, createTaskEl, createTaskActions, saveTasks.
+	•	Task Editing: taskButtonHandler, editTask, completeEditTask, saveTasks.
+	•	Task Deletion: taskButtonHandler, deleteTask, saveTasks.
+	•	Status Change: taskStatusChangeHandler, saveTasks.
+	•	Loading Tasks: loadTasks.
+
+This grouping now includes all the functions you mentioned, showing how they interact during different user actions.
+*/

@@ -148,4 +148,12 @@ In this activity, you will use `git revert` to undo a commit made earlier while 
 
 ---
 
+<!-- 
+
+	•	git reset --hard <hash-of-C>: Completely removes commits D and E, resetting the branch and working directory to commit C.
+	•	git revert <hash-of-E> and git revert <hash-of-D>: Creates new commits that undo the changes made by D and E but keeps the history.
+	•	git rebase -i <hash-of-C>^: Allows for interactive modification of commits, including removing unwanted commits.
+
+-->
+
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
