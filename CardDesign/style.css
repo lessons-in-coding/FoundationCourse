@@ -1,0 +1,136 @@
+/* Reset and base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar {
+    display: grid;
+    grid-template-areas: 
+        "logo menu toggle"
+        "search search search";
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.nav-items {
+    grid-area: menu;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items li {
+    position: relative;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #444;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.search-bar {
+    grid-area: search;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.burger-menu {
+    grid-area: toggle;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    background: #f4f4f4;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-areas:
+            "logo toggle"
+            "search search";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav-items.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .search-bar {
+        grid-area: search;
+        justify-content: flex-start;
+    }
+}

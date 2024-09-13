@@ -2,16 +2,6 @@
 Flight-Status
 
 
-06-Server-Side-APIs/01-Activities/01-Create-Fetch/Solved
-06-Server-Side-APIs/01-Activities/02-Parse-JSON/Solved
-06-Server-Side-APIs/01-Activities/03-Demo-Dynamic/Solved
-06-Server-Side-APIs/01-Activities/04-Deconstruct-Parameters/Solved
-06-Server-Side-APIs/01-Activities/05-Fetch-GitHub-Issues/Solved
-06-Server-Side-APIs/03-Algorithms/01-is-palindrome/Solved
-06-Server-Side-APIs/03-Algorithms/02-factorial/Solved
-06-Server-Side-APIs/03-Algorithms/03-title-case/Solved
-
-
 Lessons-Web-Layout-Card/Flex-Grid/index.html
 Lessons-Web-Layout-Card/Flex-Grid/style.css
 Lessons-Web-Layout-Card/Flex-Grid/script.js
@@ -51,3 +41,5 @@ UserManagementSystem
 Accordion
 ArrowAndLexicalScope
 StickyNote
+
+Grid-Flex-Layout-Design

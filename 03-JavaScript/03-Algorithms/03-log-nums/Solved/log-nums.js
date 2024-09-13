@@ -6,3 +6,5 @@ var logNums = function(num) {
     console.log(i);
   }
 };
+
+// logNums(5);

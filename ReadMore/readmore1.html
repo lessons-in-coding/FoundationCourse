@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read More/Read Less Example</title>
+    <style>
+        body{
+            font-size: 20px;
+            line-height: 2;
+            margin: 24px auto;
+            width: 80%;
+        }
+        p{
+            border: 1px solid green;
+            padding: 24px;
+            border-radius: 7px;
+            background-color: rgb(230, 230, 230);
+        }
+        .more-text {
+            display: none; /* Initially hidden */
+        }
+        .read-more {
+            color: green;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis illo ea natus corrupti, quisquam nesciunt iusto consequatur fugit maxime ut nihil aperiam, blanditiis suscipit consectetur aliquid temporibus fuga enim quo voluptatum molestias quidem tempora facilis accusantium. Nobis est, veritatis nihil veniam voluptas delectus odio quos suscipit, saepe ipsa ducimus explicabo.
+            <span class="more-text"> Alias itaque praesentium eum, pariatur consequatur ducimus asperiores accusantium velit minima? This is the additional content that will appear when Read More is clicked. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet minima optio iste eum! Ex inventore, enim cum totam labore libero quisquam aut. Asperiores officiis error, facilis ullam ipsum et voluptas alias recusandae eligendi, nihil minima totam suscipit illo quisquam debitis corporis praesentium dolorum accusantium iure. Voluptatum, laboriosam. Obcaecati omnis nostrum fugit placeat, perspiciatis quibusdam veritatis nemo, dolore id non molestias, molestiae odit totam delectus velit ad dolorem incidunt minus rem.</span>
+            <a class="read-more" onclick="toggleReadMore(this)">Read More >>></a>
+        </p>
+    </div>
+    <br>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum error molestiae libero quisquam illo dignissimos mollitia dolore accusantium quasi, ratione a neque porro iure cumque distinctio quidem illum numquam non itaque! Possimus placeat nostrum error facere vel suscipit obcaecati voluptatum dolores sunt maiores, harum tempora hic doloremque quasi odit aut architecto ex excepturi laborum illum eligendi nihil dolore sint. Quae aperiam sint iste porro similique fuga rerum temporibus sit cupiditate!
+            <span class="more-text"> Alias itaque praesentium eum, pariatur consequatur ducimus asperiores accusantium velit minima? This is the additional content that will appear when Read More is clicked. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nobis facilis quisquam totam quae, doloremque reprehenderit soluta perferendis similique iusto quam, omnis sit repellat nulla asperiores corrupti quis maiores minima ab eaque accusamus dolorum! Quos molestiae temporibus quas! Blanditiis repellendus reiciendis molestiae qui nemo? Distinctio ipsum corporis provident dolorem nobis debitis ducimus incidunt eligendi explicabo, commodi in cum quaerat qui quos modi aperiam, assumenda harum fuga, doloremque odit numquam et.</span>
+            <a class="read-more" onclick="toggleReadMore(this)">Read More >>></a>
+        </p>
+    </div>
+
+<script>
+function toggleReadMore(btn) {
+    const parent = btn.parentElement; // Get the parent <p> element
+    const moreText = parent.querySelector('.more-text'); // Find the .more-text within the parent <p>
+    
+    if (moreText.style.display === 'none' || moreText.style.display === '') {
+        moreText.style.display = 'inline';
+        btn.textContent = 'Read Less <<<';
+    } else {
+        moreText.style.display = 'none';
+        btn.textContent = 'Read More >>>';
+    }
+}
+</script>
+
+</body>
+</html>

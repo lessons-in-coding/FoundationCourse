@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floats and Positioning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header, .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .left-column {
+            float: left;
+            width: 60%;
+            padding: 15px;
+            background-color: #f2f2f2;
+        }
+
+        .right-column {
+            float: right;
+            width: 35%;
+            padding: 15px;
+            background-color: #e2e2e2;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .left-column, .right-column {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Header</div>
+    <div class="container clearfix">
+        <div class="left-column">Left Column Content</div>
+        <div class="right-column">Right Column Content</div>
+    </div>
+    <div class="footer">Footer</div>
+</body>
+</html>

@@ -8,3 +8,5 @@ var oddOrEven = function(num) {
     return "odd";
   }
 };
+// oddOrEven(777);
+// oddOrEven(1002);

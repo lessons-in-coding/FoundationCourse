@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Logo</div>
+            <ul class="nav-items">
+                <li class="dropdown">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="burger-menu" aria-label="Toggle menu">&#9776;</button>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchFunction()">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="cards">
+            <div class="card">Card 1 content</div>
+            <div class="card">Card 2 content</div>
+            <div class="card">Card 3 content</div>
+            <div class="card">Card 4 content</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

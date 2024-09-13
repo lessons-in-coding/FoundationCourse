@@ -19,3 +19,18 @@ var fizzBuzz = function(arr) {
     }
   }
 };
+
+fizzBuzz([6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+
+/*
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+Fizz Buzz
+*/

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read More Example</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body{
+            font-size: 24px;
+            line-height: 1.5;
+        }
+      /* .moreText {
+        display: none;
+      } */
+
+      .readMore {
+        color: peru;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        /* margin-top: 10px; */
+        padding-left: 10px;
+      }
+
+      .readMore:hover {
+        color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      This is an example of a paragraph that will be expanded when you click
+      "Read More".
+      <span class="moreText"
+        >Here is the additional text that will be displayed when the user clicks
+        "Read More". You can add as much text as you like here, and it will only
+        be visible once expanded.</span
+      >
+      <a class="readMore" href="javascript:void(0);" onclick="toggleReadMore()"
+        >Read More >>></a
+      >
+    </p>
+    <br />
+
+    <p>
+      This is an example of a paragraph that will be expanded when you click
+      "Read More".
+      <span class="moreText"
+        >Here is the additional text that will be displayed when the user clicks
+        "Read More". You can add as much text as you like here, and it will only
+        be visible once expanded.</span
+      >
+      <a class="readMore" href="javascript:void(0);" onclick="toggleReadMore()"
+        >Read More >>></a
+      >
+    </p>
+    <br />
+
+    <p>
+      This is an example of a paragraph that will be expanded when you click
+      "Read More".
+      <span class="moreText"
+        >Here is the additional text that will be displayed when the user clicks
+        "Read More". You can add as much text as you like here, and it will only
+        be visible once expanded.</span
+      >
+      <a class="readMore" href="javascript:void(0);" onclick="toggleReadMore()"
+        >Read More >>></a
+      >
+    </p>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+      function toggleReadMore() {
+        // var moreText = document.querySelectorAll(".moreText");
+        // var btnText = document.querySelectorAll(".readMore");
+        var btnText = this;
+        var moreText = btnText.previousElementSibling;
+
+        if (
+          moreText.style.display === "none" ||
+          moreText.style.display === ""
+        ) {
+          moreText.style.display = "inline";
+          btnText.innerHTML = "Read Less <<<";
+          btnText.style.color = "green";
+        } else {
+          moreText.style.display = "none";
+          btnText.innerHTML = "Read More >>>";
+          btnText.style.color = "peru";
+        }
+      }
+      // Set initial state on page load
+      window.onload = function () {
+        var moreTexts = document.querySelectorAll(".moreText");
+        var readMoreBtns = document.querySelectorAll(".readMore");
+
+        moreTexts.forEach(function (moreText) {
+          moreText.style.display = "none";
+        });
+
+        readMoreBtns.forEach(function (btn) {
+          btn.addEventListener("click", toggleReadMore);
+        });
+      };
+    </script>
+  </body>
+</html>
