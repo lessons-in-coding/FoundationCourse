@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: rgb(210, 135, 14);
+  --primary-bg-color: lightblue;
+  --secondary-color: green;
+  --secondary-bg-color: rgba(245, 246, 228, 0.818);
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: aliceblue;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  margin: 3% auto;
+  line-height: 2;
+  font-size: 1.2rem;
+  box-shadow: 0px 1px 2px #777;
+  border-radius: 5px;
+  padding: 4%;
+  background-color: var(--secondary-bg-color);
+}
+
+.container h1,
+h3,
+h4,
+p,
+ol {
+  margin: 2%;
+}
+
+h1 {
+  box-shadow: 0px 1px 3px #777;
+  padding: 12px;
+  background-color: var(--primary-bg-color);
+  text-align: center;
+  border-radius: 5px;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.intro {
+  color: var(--secondary-color);
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.heading {
+  font-size: 1.4rem;
+  border-bottom: 3px solid var(--secondary-color);
+  padding-bottom: 10px;
+  &:hover {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--primary-color);
+    cursor: pointer;
+  }
+}
+
+.note {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 10px;
+  margin: 7% 2%;
+}
+
+.ol-list {
+  margin: 2% 5%;
+}
+.ol-list li,
+ul-list li {
+  margin-left: 20px;
+}
+
+.ul-list {
+  margin: 2% 5%;
+  list-style: none;
+}
+
+.first-list {
+  margin-top: 20px;
+}
+
+.nerdNote {
+    color: chocolate;
+}
+.important {
+    color: rgb(159, 71, 8);
+    list-style: none;
+    padding-left: 3%;
+}
