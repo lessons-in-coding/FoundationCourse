@@ -4,18 +4,25 @@ var limitWarningEl = document.querySelector('#limit-warning');
 
 var getRepoName = function () {
   // This is coming from the URL search bar in the browser. It is what comes after the `?`.
-  var queryString = document.location.search;
-  var repoName = queryString.split('=')[1];
+  var queryString = document.location.search; // Gets the query string from the URL
+  var repoName = queryString.split('=')[1]; // Extracts the repository name from the query string
 
   if (repoName) {
-    repoNameEl.textContent = repoName;
+    repoNameEl.textContent = repoName;  // Displays the repository name in the UI
 
-    getRepoIssues(repoName);
+    getRepoIssues(repoName); // Fetches the repository issues
   } else {
     // This will run and return to the homepage if there was nothing in the URL query parameter.
-    document.location.replace('./index.html');
+    document.location.replace('./index.html'); // Redirects to the homepage if no repo name is found
   }
 };
+
+/*
+	•	queryString: Extracts the part of the URL that follows the ?, which contains the repository name.
+	•	repoName.split('=')[1]: Retrieves the repository name by splitting the URL at = and taking the second part.
+	•	getRepoIssues(repoName): Calls another function to fetch the issues for the repo.
+	•	document.location.replace('./index.html'): Redirects the user back to the homepage if no repo name is found in the URL.
+*/
 
 var getRepoIssues = function (repo) {
   var apiUrl = 'https://api.github.com/repos/' + repo + '/issues?direction=asc';
@@ -35,6 +42,13 @@ var getRepoIssues = function (repo) {
     }
   });
 };
+
+/*
+	•	apiUrl: Constructs the GitHub API URL to fetch issues for the specified repository.
+	•	fetch(apiUrl): Makes a network request to the GitHub API to retrieve the issues.
+	•	response.ok: Checks if the response from GitHub was successful.
+	•	response.headers.get('Link'): If there’s a “Link” header in the response, it indicates that there are more than 30 issues. A warning message will be displayed if more issues are available than what was fetched.
+*/
 
 var displayIssues = function (issues) {
   // This will check for strict equality. Using `!issues.length` works, but only because JavaScript considers `0` to be `falsy`.
@@ -68,6 +82,13 @@ var displayIssues = function (issues) {
   }
 };
 
+/*
+	•	if (issues.length === 0): Checks if the repository has no open issues, in which case a message is displayed.
+	•	issueEl: Creates a clickable link for each issue. Each link opens the issue in a new tab (target="_blank").
+	•	titleEl.textContent = issues[i].title: Displays the issue title.
+	•	typeEl: Determines if the issue is a pull request or a regular issue, and displays this next to the title.
+*/
+
 // When there are more issues than what GitHub has returned, we let the user know by printing a message with a link to the page.
 var displayWarning = function (repo) {
   limitWarningEl.textContent = 'To see more than 30 issues, visit ';
@@ -81,4 +102,34 @@ var displayWarning = function (repo) {
   limitWarningEl.appendChild(linkEl);
 };
 
+/*
+	•	limitWarningEl.textContent: Informs users that only 30 issues are shown and provides a link to view more.
+	•	linkEl.setAttribute('href', 'https://github.com/' + repo + '/issues'): Constructs a link to the repository’s GitHub page where users can view more issues.
+	•	target="_blank": Ensures that the link opens in a new tab.
+*/
+
 getRepoName();
+
+/*
+Difference Between "homepage.js" and "single.js"
+
+	1.	Primary Focus:
+	•	Previous Code: Focused on searching and displaying repositories based on a GitHub username or programming language.
+	•	This Code: Focuses on displaying issues for a specific repository that is selected through a URL parameter.
+	2.	URL Handling:
+	•	Previous Code: User input (GitHub username or programming language) was taken from an input field or button click.
+	•	This Code: The repository name is extracted directly from the URL query string.
+	3.	GitHub API Usage:
+	•	Previous Code: Uses different GitHub API endpoints to fetch repositories (/users/{username}/repos and /search/repositories?q={language}).
+	•	This Code: Uses the GitHub API to fetch issues for a specific repository (/repos/{repo}/issues).
+	4.	Pagination and Limits:
+	•	Previous Code: Did not handle pagination or API limits explicitly.
+	•	This Code: Includes logic to detect if the GitHub API returned more than 30 issues and displays a warning with a link to view more.
+	5.	Displaying Issues vs Repositories:
+	•	Previous Code: Displays repositories and their open issue counts.
+	•	This Code: Displays specific issues for a repository, including whether they are pull requests or regular issues.
+
+Conclusion
+
+	•	The first code example is designed for searching and displaying repositories, whereas the second example focuses on displaying issues from a single repository based on the URL. Both examples interact with GitHub’s API but focus on different aspects of repository management (searching vs issues).
+*/

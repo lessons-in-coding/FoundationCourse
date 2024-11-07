@@ -1,5 +1,8 @@
+
+// Array to hold tasks
 var tasks = {};
 
+// Function to create a task element
 var createTask = function(taskText, taskDate, taskList) {
   // create elements that make up a task item
   var taskLi = $("<li>").addClass("list-group-item");
@@ -20,6 +23,7 @@ var createTask = function(taskText, taskDate, taskList) {
   $("#list-" + taskList).append(taskLi);
 };
 
+// Function to load tasks from localStorage
 var loadTasks = function() {
   tasks = JSON.parse(localStorage.getItem("tasks"));
 
@@ -42,10 +46,12 @@ var loadTasks = function() {
   });
 };
 
+// Function to save tasks to localStorage
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
+// Function to audit task due dates and apply styles
 var auditTask = function(taskEl) {
   // get date from task element
   var date = $(taskEl)
@@ -290,3 +296,5 @@ setInterval(function() {
     auditTask($(this));
   });
 }, 1800000);
+
+
