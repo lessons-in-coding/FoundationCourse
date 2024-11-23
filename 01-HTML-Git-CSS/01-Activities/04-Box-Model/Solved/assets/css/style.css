@@ -3,16 +3,18 @@ section {
   height: 600px;
   text-align: center;
   border: 15px solid black;
+  /* box-sizing: content-box; */
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background-color: lightblue;
   /* Margin property */
   margin: 20px;
   /* Padding property */
   padding: 20px;
   /* Border property */
-  border: 9px solid darkblue;
+  border: 10px solid darkblue;
+  box-sizing: border-box;
 }
