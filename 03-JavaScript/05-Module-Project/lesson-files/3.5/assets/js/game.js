@@ -2,7 +2,7 @@
 
 // function to generate a random numeric value
 var randomNumber = function(min, max) {
-  var value = Math.floor(Math.random() * (max - min) + min);
+  var value = Math.floor(Math.random() * (max - min) + min); //
 
   return value;
 };
@@ -247,6 +247,7 @@ var playerInfo = {
     this.money = 10;
     this.attack = 10;
   },
+  
   refillHealth: function() {
     if (this.money >= 7) {
       window.alert("Refilling player's health by 20 for 7 dollars.");

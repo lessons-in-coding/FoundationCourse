@@ -1,3 +1,4 @@
+
 // This refers to the window
 console.log(this);
 

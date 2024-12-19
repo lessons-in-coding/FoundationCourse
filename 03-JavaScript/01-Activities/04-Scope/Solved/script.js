@@ -3,16 +3,16 @@ var shout = 'Shout';
 
 function justShout() {
   console.log(shout + ', ' + shout);
-  return;
+  return; //end and give the result back to 
 }
 
 function shoutItAllOut() {
   console.log(shout + ' it all out! ');
-  return;
+  return; //end
 }
 
-justShout();
-shoutItAllOut();
+justShout(); // Shout, Shout
+shoutItAllOut(); // Shout it all out!
 
 // Lions is declared locally so it is available only to the sayLions function
 function sayLions() {
@@ -53,3 +53,4 @@ function singAlong() {
 }
 
 singAlong();
+// Time and Tide, and JavaScript wait for no-man! Each works a single one at a time frame!

@@ -3,7 +3,7 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
+var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble']; // 0 1 2
 var enemyHealth = 50;
 var enemyAttack = 12;
 
@@ -182,3 +182,36 @@ var shop = function() {
 
 // start first game when page loads
 startGame();
+
+/*
+if (shopOptionPrompt === 'REFILL' || shopOptionPrompt === 'refill') {
+  if (playerMoney >= 7) {
+    window.alert("Refilling player's health by 20 for 7 dollars.");
+
+    // increase health and decrease money
+    playerHealth = playerHealth + 20;
+    playerMoney = playerMoney - 7;
+  } else {
+    window.alert("You don't have enough money!");
+  }
+} else if (shopOptionPrompt === 'UPGRADE' || shopOptionPrompt === 'upgrade') {
+  if (playerMoney >= 7) {
+    window.alert("Upgrading player's attack by 6 for 7 dollars.");
+
+    // increase attack and decrease money
+    playerAttack = playerAttack + 6;
+    playerMoney = playerMoney - 7;
+  } else {
+    window.alert("You don't have enough money!");
+  }
+} else if (shopOptionPrompt === 'LEAVE' || shopOptionPrompt === 'leave') {
+  window.alert('Leaving the store.');
+
+  // do nothing, so function will end
+} else {
+  window.alert('You did not pick a valid option. Try again.');
+
+  // call shop() again to force player to pick a valid option
+  shop();
+}
+*/

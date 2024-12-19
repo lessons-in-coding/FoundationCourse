@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Team Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .player, .enemy {
+      margin: 15px auto;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 300px;
+    }
+    .actions button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .actions button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .game-log {
+      margin: 20px auto;
+      padding: 15px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      width: 400px;
+      height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Title -->
+  <h1>Football Team Manager</h1>
+
+  <!-- Player Info -->
+  <div class="player">
+    <h2>Your Player: <span id="playerName">Lionel Messi</span></h2>
+    <p>Health: <span id="playerHealth">100</span></p>
+    <p>Energy: <span id="playerEnergy">50</span></p>
+  </div>
+
+  <!-- Opponent Info -->
+  <div class="enemy">
+    <h2>Opponent: <span id="enemyName">Cristiano Ronaldo</span></h2>
+    <p>Health: <span id="enemyHealth">80</span></p>
+  </div>
+
+  <!-- Game Start -->
+  <div class="actions">
+    <button id="attackButton" onclick="play('ATTACK')">Attack</button>
+    <button id="restButton" onclick="play('REST')">Rest</button>
+    <button id="passButton" onclick="play('PASS')">Pass</button>
+  </div>
+
+  <!-- Display Text -->
+  <div class="game-log" id="gameLog">
+    <p>Game started! Choose your action.</p>
+  </div>
+
+  <script>
+    // Initialize player and opponent data
+    let player = {
+      name: "Lionel Messi",
+      health: 100,
+      energy: 50,
+    };
+    let opponent = {
+      name: "Cristiano Ronaldo",
+      health: 80,
+    };
+
+    // Utility to log messages to the game log
+    function logMessage(message) {
+      const logDiv = document.getElementById("gameLog");
+      logDiv.innerHTML += `<p>${message}</p>`;
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+
+    // Play actions
+    function play(action) {
+      if (player.health <= 0 || opponent.health <= 0) {
+        logMessage("Game over! Refresh the page to play again.");
+        disableButtons();
+        return;
+      }
+
+      switch (action) {
+        case "ATTACK":
+          // Player attacks opponent
+          const damage = Math.floor(Math.random() * 15) + 5; // 5-20 damage
+          opponent.health -= damage;
+          player.energy -= 10;
+          logMessage(`${player.name} attacks ${opponent.name} for ${damage} damage!`);
+
+          if (opponent.health <= 0) {
+            opponent.health = 0;
+            logMessage(`${opponent.name} is defeated! You win!`);
+          }
+          break;
+
+        case "REST":
+          // Player rests and gains energy
+          player.energy = Math.min(50, player.energy + 15); // Max energy is 50
+          logMessage(`${player.name} rests and regains energy.`);
+          break;
+
+        case "PASS":
+          // Player skips their turn
+          logMessage(`${player.name} passes their turn.`);
+          break;
+      }
+
+      // Opponent retaliates if they are not defeated and action is not PASS
+      if (opponent.health > 0 && action !== "PASS") {
+        const retaliation = Math.floor(Math.random() * 10) + 5; // 5-15 damage
+        player.health -= retaliation;
+        logMessage(`${opponent.name} retaliates and deals ${retaliation} damage!`);
+
+        if (player.health <= 0) {
+          player.health = 0;
+          logMessage(`${player.name} is defeated! You lose.`);
+        }
+      }
+
+      // Update stats in the UI
+      updateStats();
+
+      // Disable buttons if the game is over
+      if (player.health <= 0 || opponent.health <= 0) {
+        disableButtons();
+      }
+    }
+
+    // Update player and opponent stats in the UI
+    function updateStats() {
+      document.getElementById("playerHealth").innerText = player.health;
+      document.getElementById("playerEnergy").innerText = player.energy;
+      document.getElementById("enemyHealth").innerText = opponent.health;
+
+      // Disable "Attack" button if player has insufficient energy
+      document.getElementById("attackButton").disabled = player.energy < 10;
+    }
+
+    // Disable all action buttons
+    function disableButtons() {
+      document.getElementById("attackButton").disabled = true;
+      document.getElementById("restButton").disabled = true;
+      document.getElementById("passButton").disabled = true;
+    }
+  </script>
+</body>
+</html>
